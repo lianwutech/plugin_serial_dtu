@@ -283,6 +283,7 @@ if __name__ == "__main__":
                             device_info["device_type"],
                             device_info["device_addr"],
                             device_info["device_port"],
+                            data_protocol,
                             "")
     while True:
         # 如果线程停止则创建
