@@ -1,0 +1,27 @@
+
+modbus-linkworld数据协议说明
+
+data、cmd数据封装均为json字符串
+
+具体参数参照如下定义：
+1、下行消息结构：
+func                        func_code       param1      param2
+fc_read_coils               1               addr        count
+fc_read_discrete_inputs     2               addr        count
+fc_write_coil               5               addr        value
+fc_write_coils              15              addr        values
+fc_write_register           6               addr        value
+fc_write_registers          16              addr        values
+fc_read_holding_registers   3               addr        count
+fc_read_input_registers     4               addr        count
+
+2、上行消息结构：
+func                        func_code       param1      param2      param3
+fc_read_coils               1               addr        count       values
+fc_read_discrete_inputs     2               addr        count       values
+fc_write_coil               5               addr        count       values
+fc_write_coils              15              addr        count       values
+fc_write_register           6               addr        count       values
+fc_write_registers          16              addr        count       values
+fc_read_holding_registers   3               addr        count       values
+fc_read_input_registers     4               addr        count       values
