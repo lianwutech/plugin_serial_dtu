@@ -109,7 +109,7 @@ def check_device(device_id, device_type, device_addr, device_port):
 def publish_device_data(device_id, device_type, device_addr, device_port, device_data):
     # device_data: 16进制字符串
     # 组包
-    device_msg = "%s,%d,%s,%d,%s" % (device_id, device_type, device_addr, device_port, device_data)
+    device_msg = "%s,%d,%s,%d,%s,%s" % (device_id, device_type, device_addr, device_port, data_protocol, device_data)
 
     # MQTT发布
     publish.single(topic=gateway_topic,
@@ -283,7 +283,6 @@ if __name__ == "__main__":
                             device_info["device_type"],
                             device_info["device_addr"],
                             device_info["device_port"],
-                            data_protocol,
                             "")
     while True:
         # 如果线程停止则创建
