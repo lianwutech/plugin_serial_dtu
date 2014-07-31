@@ -7,6 +7,9 @@
     3、devices_info_dict需要持久化设备信息，启动时加载，变化时写入
     4、device_cmd内容：json字符串
 """
+
+import os
+import sys
 import time
 import json
 import serial
@@ -59,27 +62,30 @@ serial_baund = int(config.get('serial', 'baund'))
 mqtt_server_ip = config.get('mqtt', 'server')
 mqtt_server_port = int(config.get('mqtt', 'port'))
 gateway_topic = config.get('gateway', 'topic')
-data_protocol = config.get('protocol', 'data')
+device_id_prefix = config.get('device', 'addr')
+data_protocol = config.get('device', 'protocol')
 
 # 获取本机ip
 ip_addr = get_ip_addr()
 
 # 加载设备信息字典
-devices_info_file = "./devices.txt"
+devices_info_file = "devices.txt"
 
 
 def load_devices_info_dict():
-    devices_file = open(devices_info_file, "r+")
     if os.path.exists(devices_info_file):
+        devices_file = open(devices_info_file, "r+")
         content = devices_file.read()
         devices_file.close()
         try:
-            devices_info_dict = loads(content)
-            # 将每个设备设置成未激活状态
-            for device_id in devices_info_dict:
-                devices_info_dict[device_id]["active"] = False
+            devices_info_dict.update(json.loads(content))
         except Exception, e:
             logger.error("devices.txt内容格式不正确")
+    else:
+        devices_file = open(devices_info_file, "w+")
+        devices_file.write("{}")
+        devices_file.close()
+    logger.debug("devices_info_dict加载结果%r" % devices_info_dict)
 
 
 # 新增设备
@@ -91,15 +97,13 @@ def check_device(device_id, device_type, device_addr, device_port):
             "device_id": device_id,
             "device_type": device_type,
             "device_addr": device_addr,
-            "device_port": device_port,
-            "active": True
+            "device_port": device_port
         }
+        logger.debug("发现新设备%r" % devices_info_dict[device_id])
         #写文件
         devices_file = open(devices_info_file, "w+")
         devices_file.write(dumps(devices_info_dict))
         devices_file.close()
-    else:
-        devices_info_dict[device_id]["active"] = True
 
 
 def publish_device_data(device_id, device_type, device_addr, device_port, device_data):
@@ -116,7 +120,7 @@ def publish_device_data(device_id, device_type, device_addr, device_port, device
 
 
 # 串口数据读取线程
-def process_mqtt(device_id):
+def process_mqtt():
     """
     :param device_id 设备地址
     :return:
@@ -127,8 +131,7 @@ def process_mqtt(device_id):
         # Subscribing in on_connect() means that if we lose the connection and
         # reconnect then subscriptions will be renewed.
         for device_id in devices_info_dict:
-            device_info = devices_info_dict[device_id]
-            logger.debug("device_info:%r" % device_info)
+            logger.debug("监听topic:%s" % device_id)
             mqtt_client.subscribe(device_id)
 
     # The callback for when a PUBLISH message is received from the server.
@@ -235,6 +238,7 @@ def process_mqtt(device_id):
                 logger.error("不支持的modbus指令：%d" % device_cmd["function_code"])
                 device_data = None
 
+            logger.debug("return device_data:%r" % device_data)
             if device_data is not None:
                 publish_device_data(device_info["device_id"],
                                     device_info["device_type"],
@@ -272,24 +276,19 @@ if __name__ == "__main__":
     # 加载设备数据
     load_devices_info_dict()
 
-    # 更新设备状态
-    for slave_id in range(0, 0xff):
-        req_result = modbus_client.write_register(0, slave_id, unit=slave_id)
-        if req_result.function_code < 0x80:
-            device_id = "%s_%s_%d" % (ip_addr, serial_port, slave_id)
-            device_type = 0
-            device_addr = serial_port
-            device_port = slave_id
-            check_device(device_id, device_type, device_addr, device_port)
-            # 通知网关新增设备
-            publish_device_data(device_id, device_type, device_addr, device_port, "")
-
+    # 发送设备信息
+    for device_id in devices_info_dict:
+        device_info = devices_info_dict[device_id]
+        publish_device_data(device_info["device_id"],
+                            device_info["device_type"],
+                            device_info["device_addr"],
+                            device_info["device_port"],
+                            "")
     while True:
         # 如果线程停止则创建
         if not mqtt_thread.is_alive():
             mqtt_thread = threading.Thread(target=process_mqtt)
             mqtt_thread.start()
 
-        logger.debug("处理完成，休眠0.1秒")
+        logger.debug("处理完成，休眠5秒")
         time.sleep(5)
-
