@@ -62,7 +62,7 @@ serial_baund = int(config.get('serial', 'baund'))
 mqtt_server_ip = config.get('mqtt', 'server')
 mqtt_server_port = int(config.get('mqtt', 'port'))
 gateway_topic = config.get('gateway', 'topic')
-device_id_prefix = config.get('device', 'addr')
+device_network = config.get('device', 'network')
 data_protocol = config.get('device', 'protocol')
 
 # 获取本机ip
@@ -115,7 +115,8 @@ def publish_device_data(device_id, device_type, device_addr, device_port, device
     publish.single(topic=gateway_topic,
                    payload=device_msg,
                    hostname=mqtt_server_ip,
-                   port=mqtt_server_port)
+                   port=mqtt_server_port,
+                   client_id=device_network)
     logger.info("向Topic(%s)发布消息：%s" % (gateway_topic, device_msg))
 
 
@@ -130,9 +131,7 @@ def process_mqtt():
         logger.info("Connected with result code " + str(rc))
         # Subscribing in on_connect() means that if we lose the connection and
         # reconnect then subscriptions will be renewed.
-        for device_id in devices_info_dict:
-            logger.debug("监听topic:%s" % device_id)
-            mqtt_client.subscribe(device_id)
+        mqtt_client.subscribe("$%s/#" % device_network)
 
     # The callback for when a PUBLISH message is received from the server.
     def on_message(client, userdata, msg):
@@ -250,7 +249,7 @@ def process_mqtt():
             logger.error("设备不存在，消息主题:%s" % msg.topic)
 
 
-    mqtt_client = mqtt.Client(client_id=gateway_topic)
+    mqtt_client = mqtt.Client(client_id=device_network)
     mqtt_client.on_connect = on_connect
     mqtt_client.on_message = on_message
 
