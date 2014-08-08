@@ -36,6 +36,10 @@ from json import loads, dumps
 from libs.utils import *
 from libs.modbusdefine import *
 
+# 设置系统为utf-8  勿删除
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 # 全局变量
 # 设备信息字典
 devices_info_dict = dict()
@@ -61,6 +65,7 @@ serial_port = config.get('serial', 'port')
 serial_baund = int(config.get('serial', 'baund'))
 mqtt_server_ip = config.get('mqtt', 'server')
 mqtt_server_port = int(config.get('mqtt', 'port'))
+mqtt_client_id = config.get('mqtt', 'client_id')
 gateway_topic = config.get('gateway', 'topic')
 device_network = config.get('device', 'network')
 data_protocol = config.get('device', 'protocol')
@@ -109,14 +114,20 @@ def check_device(device_id, device_type, device_addr, device_port):
 def publish_device_data(device_id, device_type, device_addr, device_port, device_data):
     # device_data: 16进制字符串
     # 组包
-    device_msg = "%s,%d,%s,%d,%s,%s" % (device_id, device_type, device_addr, device_port, data_protocol, device_data)
+    device_msg = {
+        "device_id": device_id,
+        "device_type": device_type,
+        "device_addr": device_addr,
+        "device_port": device_port,
+        "data_protocol": data_protocol,
+        "data": device_data
+    }
 
     # MQTT发布
     publish.single(topic=gateway_topic,
-                   payload=device_msg,
+                   payload=json.dumps(device_msg),
                    hostname=mqtt_server_ip,
-                   port=mqtt_server_port,
-                   client_id=device_network)
+                   port=mqtt_server_port)
     logger.info("向Topic(%s)发布消息：%s" % (gateway_topic, device_msg))
 
 
@@ -131,14 +142,15 @@ def process_mqtt():
         logger.info("Connected with result code " + str(rc))
         # Subscribing in on_connect() means that if we lose the connection and
         # reconnect then subscriptions will be renewed.
-        mqtt_client.subscribe("$%s#" % device_network)
+        mqtt_client.subscribe("%s/#" % device_network)
 
     # The callback for when a PUBLISH message is received from the server.
     def on_message(client, userdata, msg):
         logger.info("收到数据消息" + msg.topic + " " + str(msg.payload))
         # 消息只包含device_cmd，为json字符串
         try:
-            device_cmd = loads(msg.payload)
+            cmd_msg = json.loads(msg.payload)
+            device_cmd = json.loads(cmd_msg["command"])
         except Exception, e:
             device_cmd = None
             logger.error("消息内容错误，%r" % msg.payload)
@@ -147,94 +159,93 @@ def process_mqtt():
         device_info = devices_info_dict.get(msg.topic, None)
         # 对指令进行处理
         if device_info is not None:
-            if device_cmd["function_code"] == const.fc_read_coils or \
-                            device_cmd["function_code"] == const.fc_read_discrete_inputs:
-                req_result = modbus_client.read_coils(device_cmd["address"],
+            if device_cmd["func_code"] == const.fc_read_coils or device_cmd["func_code"] == const.fc_read_discrete_inputs:
+                req_result = modbus_client.read_coils(device_cmd["addr"],
                                                       device_cmd["count"],
-                                                      unit=device_info["device_port"])
+                                                      unit=int(device_info["device_addr"]))
                 device_data = {
-                    "func_code": device_cmd["function_code"],
-                    "addr": device_cmd["address"],
+                    "func_code": device_cmd["func_code"],
+                    "addr": device_cmd["addr"],
                     "count": device_cmd["count"],
                     "values": req_result.bits
                 }
 
-            elif device_cmd["function_code"] == const.fc_write_coil:
-                req_result = modbus_client.write_coil(device_cmd["address"],
+            elif device_cmd["func_code"] == const.fc_write_coil:
+                req_result = modbus_client.write_coil(device_cmd["addr"],
                                                       device_cmd["value"],
-                                                      unit=device_info["device_port"])
-                res_result = modbus_client.read_coils(device_cmd["address"],
+                                                      unit=int(device_info["device_addr"]))
+                res_result = modbus_client.read_coils(device_cmd["addr"],
                                                       1,
-                                                      unit=device_info["device_port"])
+                                                      unit=int(device_info["device_addr"]))
                 device_data = {
-                    "func_code": device_cmd["function_code"],
-                    "addr": device_cmd["address"],
+                    "func_code": device_cmd["func_code"],
+                    "addr": device_cmd["addr"],
                     "count": 1,
                     "values": req_result.bits[0:1]
                 }
-            elif device_cmd["function_code"] == const.fc_write_coils:
-                req_result = modbus_client.write_coils(device_cmd["address"],
+            elif device_cmd["func_code"] == const.fc_write_coils:
+                req_result = modbus_client.write_coils(device_cmd["addr"],
                                                    device_cmd["values"],
-                                                   unit=device_info["device_port"])
+                                                   unit=int(device_info["device_addr"]))
                 counter = len(device_cmd["values"])
-                res_result = modbus_client.read_coils(device_cmd["address"],
+                res_result = modbus_client.read_coils(device_cmd["addr"],
                                                       counter,
-                                                      unit=device_info["device_port"])
+                                                      unit=int(device_info["device_addr"]))
                 device_data = {
-                    "func_code": device_cmd["function_code"],
-                    "addr": device_cmd["address"],
+                    "func_code": device_cmd["func_code"],
+                    "addr": device_cmd["addr"],
                     "count": counter,
                     "values": res_result.bits
                 }
-            elif device_cmd["function_code"] == const.fc_write_register:
-                req_result = modbus_client.write_register(device_cmd["address"],
+            elif device_cmd["func_code"] == const.fc_write_register:
+                req_result = modbus_client.write_register(device_cmd["addr"],
                                                       device_cmd["value"],
-                                                      unit=device_info["device_port"])
-                res_result = modbus_client.read_holding_registers(device_cmd["address"],
+                                                      unit=int(device_info["device_addr"]))
+                res_result = modbus_client.read_holding_registers(device_cmd["addr"],
                                                       1,
-                                                      unit=device_info["device_port"])
+                                                      unit=int(device_info["device_addr"]))
                 device_data = {
-                    "func_code": device_cmd["function_code"],
-                    "addr": device_cmd["address"],
+                    "func_code": device_cmd["func_code"],
+                    "addr": device_cmd["addr"],
                     "count": 1,
                     "values": res_result.registers[0:1]
                 }
-            elif device_cmd["function_code"] == const.fc_write_registers:
-                result = modbus_client.write_registers(device_cmd["address"],
+            elif device_cmd["func_code"] == const.fc_write_registers:
+                result = modbus_client.write_registers(device_cmd["addr"],
                                                        device_cmd["values"],
-                                                       unit=device_info["device_port"])
+                                                       unit=int(device_info["device_addr"]))
                 counter = len(device_cmd["values"])
-                res_result = modbus_client.read_input_registers(device_cmd["address"],
+                res_result = modbus_client.read_input_registers(device_cmd["addr"],
                                                       counter,
-                                                      unit=device_info["device_port"])
+                                                      unit=int(device_info["device_addr"]))
                 device_data = {
-                    "func_code": device_cmd["function_code"],
-                    "addr": device_cmd["address"],
+                    "func_code": device_cmd["func_code"],
+                    "addr": device_cmd["addr"],
                     "count": counter,
                     "values": res_result.registers
                 }
-            elif device_cmd["function_code"] == const.fc_read_holding_registers:
-                res_result = modbus_client.read_holding_registers(device_cmd["address"],
+            elif device_cmd["func_code"] == const.fc_read_holding_registers:
+                res_result = modbus_client.read_holding_registers(device_cmd["addr"],
                                                                   device_cmd["count"],
-                                                                  unit=device_info["device_port"])
+                                                                  unit=int(device_info["device_addr"]))
                 device_data = {
-                    "func_code": device_cmd["function_code"],
-                    "addr": device_cmd["address"],
+                    "func_code": device_cmd["func_code"],
+                    "addr": device_cmd["addr"],
                     "count": device_cmd["count"],
                     "values": res_result.registers
                 }
-            elif device_cmd["function_code"] == const.fc_read_input_registers:
-                res_result = modbus_client.read_input_registers(device_cmd["address"],
+            elif device_cmd["func_code"] == const.fc_read_input_registers:
+                res_result = modbus_client.read_input_registers(device_cmd["addr"],
                                                                 device_cmd["count"],
-                                                                unit=device_info["device_port"])
+                                                                unit=int(device_info["device_addr"]))
                 device_data = {
-                    "func_code": device_cmd["function_code"],
-                    "addr": device_cmd["address"],
+                    "func_code": device_cmd["func_code"],
+                    "addr": device_cmd["addr"],
                     "count": device_cmd["count"],
                     "values": res_result.registers
                 }
             else:
-                logger.error("不支持的modbus指令：%d" % device_cmd["function_code"])
+                logger.error("不支持的modbus指令：%d" % device_cmd["func_code"])
                 device_data = None
 
             logger.debug("return device_data:%r" % device_data)
@@ -243,13 +254,12 @@ def process_mqtt():
                                     device_info["device_type"],
                                     device_info["device_addr"],
                                     device_info["device_port"],
-                                    data_protocol,
                                     json.dumps(device_data))
         else:
             logger.error("设备不存在，消息主题:%s" % msg.topic)
 
 
-    mqtt_client = mqtt.Client(client_id=device_network)
+    mqtt_client = mqtt.Client(client_id=mqtt_client_id)
     mqtt_client.on_connect = on_connect
     mqtt_client.on_message = on_message
 
@@ -284,10 +294,13 @@ if __name__ == "__main__":
                             device_info["device_port"],
                             "")
     while True:
-        # 如果线程停止则创建
+        #如果线程停止则创建
         if not mqtt_thread.is_alive():
             mqtt_thread = threading.Thread(target=process_mqtt)
             mqtt_thread.start()
 
+        # res_result = modbus_client.read_input_registers(0, 1, unit=1)
+        # print json.dumps(res_result.registers)
+
         logger.debug("处理完成，休眠5秒")
-        time.sleep(5)
+        time.sleep(2)

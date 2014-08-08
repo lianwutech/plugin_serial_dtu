@@ -19,9 +19,16 @@ ser = serial.Serial( #下面这些参数根据情况修改
     stopbits=serial.STOPBITS_ONE,
     bytesize=serial.EIGHTBITS
 )
+# ser = serial.Serial( #下面这些参数根据情况修改
+#     port='/dev/tty.SLAB_USBtoUART',
+#     baudrate=9600
+# )
 
-for i in range(0, 1):
-    n = ser.write("\x01\x04\x00\x00\x00\x00\x01\x31\xCA")
-    print n
-    str = ser.read(n)
-    hexShow(str)
+ser.write("\x01\x04\x00\x00\x00\x01\x31\xCA")
+while True:
+    data = ''
+    while ser.inWaiting() > 0:
+        data += ser.read()
+    if data != '':
+        print "%r" %data
+        print data.encode("hex")
