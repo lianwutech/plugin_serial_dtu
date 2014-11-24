@@ -46,12 +46,13 @@ def get_ip_addr(ifname="eth0"):
         return myaddr
     elif system == "Linux":
         import socket
-        import fcntl
-        import struct
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        return socket.inet_ntoa(fcntl.ioctl(s.fileno(),
-                                            0x8915,     # SIOCGIFADDR
-                                            struct.pack('256s', ifname[:15])
-                                )[20:24])
+        try:
+            csock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            csock.connect(('8.8.8.8', 80))
+            (addr, port) = csock.getsockname()
+            csock.close()
+            return addr
+        except socket.error:
+            return "127.0.0.1"
     else:
         return "127.0.0.1"
