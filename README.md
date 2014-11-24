@@ -1,4 +1,4 @@
-plugin_serial_dtu
+plugin_serial_modbus
 ==================
 串口访问modbus网络
 设备配置样例：
