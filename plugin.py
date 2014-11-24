@@ -150,7 +150,7 @@ def process_mqtt():
         # 消息只包含device_cmd，为json字符串
         try:
             cmd_msg = json.loads(msg.payload)
-            device_cmd = json.loads(cmd_msg["command"])
+            device_cmd = cmd_msg["command"]
         except Exception, e:
             device_cmd = None
             logger.error("消息内容错误，%r" % msg.payload)
@@ -278,8 +278,20 @@ def process_mqtt():
 if __name__ == "__main__":
 
     # 初始化modbus客户端
-    modbus_client = ModbusClient(method='rtu', port=serial_port, baudrate=serial_baund, stopbits=serial.STOPBITS_ONE, parity=serial.PARITY_NONE, bytesize=serial.EIGHTBITS, timeout=1)
+    modbus_client = ModbusClient(method='rtu',
+                                 port=serial_port,
+                                 baudrate=serial_baund,
+                                 stopbits=serial.STOPBITS_ONE,
+                                 parity=serial.PARITY_NONE,
+                                 bytesize=serial.EIGHTBITS,
+                                 timeout=2)
     modbus_client.connect()
+
+    # 测试代码
+    # res_result = modbus_client.read_input_registers(0, 1, unit=1)
+    # print json.dumps(res_result.registers)
+    # res_result = modbus_client.read_holding_registers(0, 2, unit=1)
+    # print json.dumps(res_result.registers)
 
     # 初始化mqtt监听
     mqtt_thread = threading.Thread(target=process_mqtt)
@@ -301,9 +313,6 @@ if __name__ == "__main__":
         if not mqtt_thread.is_alive():
             mqtt_thread = threading.Thread(target=process_mqtt)
             mqtt_thread.start()
-
-        # res_result = modbus_client.read_input_registers(0, 1, unit=1)
-        # print json.dumps(res_result.registers)
 
         logger.debug("处理完成，休眠5秒")
         time.sleep(2)
