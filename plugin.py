@@ -18,19 +18,7 @@ from pymodbus.client.sync import ModbusSerialClient as ModbusClient
 import threading
 import logging
 import ConfigParser
-try:
-    import paho.mqtt.publish as publish
-except ImportError:
-    # This part is only required to run the example from within the examples
-    # directory when the module itself is not installed.
-    #
-    # If you have the module installed, just use "import paho.mqtt.publish"
-    import os
-    import inspect
-    cmd_subfolder = os.path.realpath(os.path.abspath(os.path.join(os.path.split(inspect.getfile( inspect.currentframe() ))[0],"../src")))
-    if cmd_subfolder not in sys.path:
-        sys.path.insert(0, cmd_subfolder)
-    import paho.mqtt.publish as publish
+import paho.mqtt.publish as publish
 from json import loads, dumps
 
 from libs.utils import *
@@ -51,8 +39,8 @@ procedure_path = cur_file_dir()
 os.chdir(procedure_path)
 
 # 日志对象
-logger = logging.getLogger('serial_dtu')
-hdlr = logging.FileHandler('./serial_dtu.log')
+logger = logging.getLogger('plugin')
+hdlr = logging.FileHandler('./plugin.log')
 formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
 hdlr.setFormatter(formatter)
 logger.addHandler(hdlr)
@@ -60,7 +48,7 @@ logger.setLevel(logging.DEBUG)
 
 # 加载配置项
 config = ConfigParser.ConfigParser()
-config.read("./serial_dtu.cfg")
+config.read("./plugin.cfg")
 serial_port = config.get('serial', 'port')
 serial_baund = int(config.get('serial', 'baund'))
 mqtt_server_ip = config.get('mqtt', 'server')
