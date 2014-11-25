@@ -1,6 +1,6 @@
 # Runtime requirements
 
 pyserial
-paho-mqtt
+mosquitto
 pymodbus
 
