@@ -93,6 +93,7 @@ def on_message(client, userdata, msg):
     except Exception, e:
         device_cmd = None
         logger.error("消息内容错误，%r" % msg.payload)
+        return
 
     # 根据topic确定设备
     device_info = devices_info_dict.get(msg.topic, None)
@@ -201,6 +202,10 @@ def on_message(client, userdata, msg):
 # 主函数
 class PluginDaemon(Daemon):
     def _run(self):
+
+        # 改变当前路径为插件代码路径
+        os.chdir(procedure_path)
+
         global devices_info_dict
         # 加载设备数据
         devices_info_dict = load_devices_info_dict()

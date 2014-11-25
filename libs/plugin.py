@@ -44,17 +44,22 @@ def load_config():
 def load_devices_info_dict():
     devices_info_dict = dict()
     if os.path.exists(devices_file_name):
-        devices_file = open(devices_file_name, "r+")
+        devices_file = open(devices_file_name, "rw+")
         content = devices_file.read()
+        logger.debug("devices.txt内容:%s" % content)
         devices_file.close()
         try:
             devices_info_dict.update(json.loads(content))
         except Exception, e:
             logger.error("devices.txt内容格式不正确")
-    else:
+
+    # 重写设备信息
+    try:
         devices_file = open(devices_file_name, "w+")
-        devices_file.write("{}")
+        devices_file.write(json.dumps(devices_info_dict))
         devices_file.close()
+    except Exception, e:
+        logger.error("load devices info fail，%r" % e)
     logger.debug("devices_info_dict加载结果%r" % devices_info_dict)
     return devices_info_dict
 
