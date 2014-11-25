@@ -12,7 +12,7 @@ import serial
 from pymodbus.client.sync import ModbusSerialClient as ModbusClient
 import mosquitto
 
-from libs.daemon import *
+from libs.daemon import Daemon
 from libs.plugin import *
 from libs.modbusdefine import *
 
@@ -20,22 +20,24 @@ from libs.modbusdefine import *
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+# 程序运行路径
+# 工作目录切换为python脚本所在地址，后续成为守护进程后会被修改为'/'
+procedure_path = cur_file_dir()
+os.chdir(procedure_path)
+
 # 全局变量
 # 日志对象
 logger = logging.getLogger('plugin')
 
-# 设备信息字典
-devices_info_dict = dict()
 mqtt_client = None
 modbus_client = None
 
 # 配置信息
 config_info = load_config()
 
-# 程序运行路径
-procedure_path = cur_file_dir()
-# 工作目录切换为python脚本所在地址，后续成为守护进程后会被修改为'/'
-os.chdir(procedure_path)
+# 设备信息字典
+devices_info_dict = load_devices_info_dict()
+
 # 通过工作目录获取当前插件名称
 plugin_name = procedure_path.split("/")[-1]
 
@@ -202,13 +204,6 @@ def on_message(client, userdata, msg):
 # 主函数
 class PluginDaemon(Daemon):
     def _run(self):
-
-        # 改变当前路径为插件代码路径
-        os.chdir(procedure_path)
-
-        global devices_info_dict
-        # 加载设备数据
-        devices_info_dict = load_devices_info_dict()
 
         # 初始化modbus客户端
         global modbus_client
