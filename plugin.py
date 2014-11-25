@@ -10,28 +10,16 @@
 import os
 import sys
 import serial
+import logging
+import logging.config
 from pymodbus.client.sync import ModbusSerialClient as ModbusClient
 import mosquitto
 
+from setting import *
 from libs.utils import *
 from libs.daemon import Daemon
 from libs.plugin import *
 from libs.modbusdefine import *
-
-# 设置系统为utf-8  勿删除
-reload(sys)
-sys.setdefaultencoding('utf-8')
-
-# 程序运行路径
-# 工作目录切换为python脚本所在地址，后续成为守护进程后会被修改为'/'
-procedure_path = cur_file_dir()
-os.chdir(procedure_path)
-
-# 创建日志目录
-mkdir("/logs")
-
-# 加载logging.conf
-logging.config.fileConfig('logging.conf')
 
 # 全局变量
 # 日志对象
@@ -47,7 +35,7 @@ config_info = load_config()
 devices_info_dict = load_devices_info_dict()
 
 # 通过工作目录获取当前插件名称
-plugin_name = procedure_path.split("/")[-1]
+plugin_name = PROCEDURE_PATH.split("/")[-1]
 
 
 # 检查系统配置项
