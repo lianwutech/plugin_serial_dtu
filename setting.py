@@ -10,7 +10,18 @@ import sys
 import logging
 import logging.config
 
-from libs.utils import *
+
+#获取脚本文件的当前路径
+def cur_file_dir():
+    #获取脚本路径
+    path = sys.path[0]
+    #判断为脚本文件还是py2exe编译后的文件，如果是脚本文件，则返回的是脚本的目录，
+    #如果是py2exe编译后的文件，则返回的是编译后的文件路径
+    if os.path.isdir(path):
+        return path
+    elif os.path.isfile(path):
+        return os.path.dirname(path)
+
 # 设置系统为utf-8  勿删除
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -20,6 +31,7 @@ sys.setdefaultencoding('utf-8')
 PROCEDURE_PATH = cur_file_dir()
 os.chdir(PROCEDURE_PATH)
 
+from libs.utils import mkdir
 # 创建日志目录
 mkdir("/logs")
 
