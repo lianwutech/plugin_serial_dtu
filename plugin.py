@@ -7,11 +7,13 @@
     3、devices_info_dict需要持久化设备信息，启动时加载，变化时写入
     4、device_cmd内容：json字符串
 """
-
+import os
+import sys
 import serial
 from pymodbus.client.sync import ModbusSerialClient as ModbusClient
 import mosquitto
 
+from libs.utils import *
 from libs.daemon import Daemon
 from libs.plugin import *
 from libs.modbusdefine import *
@@ -24,6 +26,12 @@ sys.setdefaultencoding('utf-8')
 # 工作目录切换为python脚本所在地址，后续成为守护进程后会被修改为'/'
 procedure_path = cur_file_dir()
 os.chdir(procedure_path)
+
+# 创建日志目录
+mkdir("/logs")
+
+# 加载logging.conf
+logging.config.fileConfig('logging.conf')
 
 # 全局变量
 # 日志对象

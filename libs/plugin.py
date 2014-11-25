@@ -14,12 +14,6 @@ from libs.utils import *
 devices_file_name = "devices.txt"
 config_file_name = "plugin.cfg"
 
-# 创建日志目录
-mkdir("/logs")
-
-# 加载logging.conf
-logging.config.fileConfig('logging.conf')
-
 # 日志处理
 logger = logging.getLogger('plugin')
 
