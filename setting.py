@@ -23,7 +23,7 @@ PROCEDURE_PATH = cur_file_dir()
 os.chdir(PROCEDURE_PATH)
 
 # 创建日志目录
-mkdir("/logs")
+mkdir("logs")
 
 # 加载logging.conf
 logging.config.fileConfig('logging.conf')
