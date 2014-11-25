@@ -38,6 +38,8 @@ devices_info_dict = dict()
 procedure_path = cur_file_dir()
 # 工作目录修改为python脚本所在地址，后续成为守护进程后会被修改为'/'
 os.chdir(procedure_path)
+# 通过工作目录获取当前插件名称
+plugin_name = procedure_path.split("/")[-1]
 
 # 日志对象
 logger = logging.getLogger('plugin')
@@ -291,10 +293,9 @@ class PluginDaemon(Daemon):
 
 # 主函数
 def main(argv):
-    daemon_id = os.getpid()
-    pid_file_path = "/tmp/plugin-daemon-serial-modbus-%d.pid" % daemon_id
-    stdout_file_path = "/tmp/plugin_serial-modbus-%d.stdout" % daemon_id
-    stderr_file_path = "/tmp/plugin_serial-modbus-%d.stderr" % daemon_id
+    pid_file_path = "/tmp/%s.pid" % plugin_name
+    stdout_file_path = "/tmp/%s.stdout" % plugin_name
+    stderr_file_path = "/tmp/%s.stderr" % plugin_name
     daemon = PluginDaemon(pid_file_path, stdout=stdout_file_path, stderr=stderr_file_path)
 
     if len(sys.argv) == 2:
