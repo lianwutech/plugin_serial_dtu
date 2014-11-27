@@ -3,6 +3,7 @@
 
 """
 modbus协议类
+本协议仅作为框架使用，仅支持rtu通达
 """
 
 import logging
@@ -10,29 +11,28 @@ import logging
 from libs.base_protocol import BaseProtocol
 
 
-logger = logging.getLogger('linkworld')
+logger = logging.getLogger('plugin')
 
 
 class ModbusProtocol(BaseProtocol):
-    def process_data(self, device_info, data_msg):
+    def __init__(self, protocol_params):
+        BaseProtocol.__init__(self, protocol_params)
+        # 修改协议名称
+        self.protocol = "modbus"
+
+    def process_data(self, network_name, data):
         """
         返回device_data
         :param data_msg:
         :return:
         """
-        result = True
-        if device_info is None:
-            result = result and False
+        return []
 
-        device_data = data_msg
-
-        return result, device_info, device_data
-
-    def process_cmd(self, device_info, device_cmd):
+    def process_cmd(self, device_cmd_msg):
         """
         返回cmd_msg
         :param device_cmd:
         :return:
         """
-        return device_cmd
+        return ""
 

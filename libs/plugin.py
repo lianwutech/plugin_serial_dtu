@@ -8,16 +8,16 @@ import json
 import logging
 
 from libs.utils import *
+from libs.base_channel import BaseChannel
+from libs.base_protocol import BaseProtocol
 
-# 全局变量
-devices_file_name = "devices.txt"
-config_file_name = "plugin.cfg"
 
 # 日志处理
 logger = logging.getLogger('plugin')
 
+
 # 获取配置项
-def load_config():
+def load_config(config_file_name):
     if os.path.exists(config_file_name):
         config_file = open(config_file_name, "r+")
         content = config_file.read()
@@ -33,43 +33,58 @@ def load_config():
         logger.error("config file is not exist. Please check!")
         return None
 
-# 加载设备信息
-def load_devices_info_dict():
-    devices_info_dict = dict()
-    if os.path.exists(devices_file_name):
-        devices_file = open(devices_file_name, "rw+")
-        content = devices_file.read()
-        logger.debug("devices.txt内容:%s" % content)
-        devices_file.close()
-        try:
-            devices_info_dict.update(json.loads(content))
-        except Exception, e:
-            logger.error("devices.txt内容格式不正确")
 
-    # 重写设备信息
-    try:
-        devices_file = open(devices_file_name, "w+")
-        devices_file.write(json.dumps(devices_info_dict))
-        devices_file.close()
-    except Exception, e:
-        logger.error("load devices info fail，%r" % e)
-    logger.debug("devices_info_dict加载结果%r" % devices_info_dict)
-    return devices_info_dict
+# 加载channel类
+def load_channel(channel_type):
+    channel_type = channel_type.lower()
+    # 扫描通道库
+    # 通过扫描目录来获取支持的协议库
+    cur_dir = cur_file_dir()
+    if cur_dir is not None:
+        channel_lib_path = cur_dir + "/channels"
+        file_list = os.listdir(channel_lib_path)
+        for file_name in file_list:
+            file_path = os.path.join(channel_lib_path, file_name)
+            if os.path.isfile(file_path) and channel_type + ".py" == file_name:
+                channel_name, ext = os.path.splitext(file_name)
+                # 确保协议名称为小写
+                channel_name = channel_name.lower()
+                # 加载库
+                module_name = "channels." + channel_name
+                try:
+                    module = __import__(module_name)
+                    channel_module_attrs = getattr(module, channel_name)
+                    class_object = get_subclass(channel_module_attrs, BaseChannel)
+                    return class_object
+                except Exception, e:
+                    logger.error("Load channel(%s) fail, error info:%r" % (module_name, e))
+    return None
 
 
-# 新增设备
-def check_device(devices_info_dict, device_id, device_type, device_addr, device_port):
-    # 如果设备不存在则设备字典新增设备并写文件
-    if device_id not in devices_info_dict:
-        # 新增设备到字典中
-        devices_info_dict[device_id] = {
-            "device_id": device_id,
-            "device_type": device_type,
-            "device_addr": device_addr,
-            "device_port": device_port
-        }
-        logger.info("发现新设备%r" % devices_info_dict[device_id])
-        #写文件
-        devices_file = open(devices_file_name, "w+")
-        devices_file.write(json.dumps(devices_info_dict))
-        devices_file.close()
+# 加载protocol类
+def load_protocol(protocol_type):
+    protocol_type = protocol_type.lower()
+    # 通过扫描目录来获取支持的协议库
+    cur_dir = cur_file_dir()
+    if cur_dir is not None:
+        protocol_lib_path = cur_dir + "/protocols"
+        file_list = os.listdir(protocol_lib_path)
+        for file_name in file_list:
+            file_path = os.path.join(protocol_lib_path, file_name)
+            if os.path.isfile(file_path) and protocol_type + ".py" == file_name:
+                protocol_name, ext = os.path.splitext(file_name)
+                # 确保协议名称为小写
+                protocol_name = protocol_name.lower()
+                # 加载库
+                module_name = "protocols." + protocol_name
+                try:
+                    module = __import__(module_name)
+                    # class_name = words_capitalize(protocol_name, "_") + "Protocol"
+                    # class_object = getattr(module, class_name)
+                    protocol_module = getattr(module, protocol_name)
+                    class_object = get_subclass(protocol_module, BaseProtocol)
+                    return class_object
+                except Exception, e:
+                    logger.error("Load protocol(%s) fail, error info:%r" % (module_name, e))
+
+    return None

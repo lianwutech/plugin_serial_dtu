@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca7a485e-6405-4048-bcd1-994eb8bc833f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setting.py" afterPath="$PROJECT_DIR$/setting.py" />
+    <list default="true" id="5c3a6c7a-74e3-43ab-9e93-d027dcba2354" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/channels/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/base_channel.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/channels/httpclient.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/channels/httpserver.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/mqttclient.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/plugin_serial_modbus.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/channels/serial.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/channels/serialrtu.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/channels/tcpclient.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/channels/tcprtu.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/channels/tcpserver.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/channels/udpclient.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/channels/udpserver.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protocols/yykjir.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/plugin_serial_dtu.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/test_serial.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/base_protocol.py" afterPath="$PROJECT_DIR$/libs/base_protocol.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protocols/modbus.py" afterPath="$PROJECT_DIR$/protocols/modbus.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugin.cfg" afterPath="$PROJECT_DIR$/plugin.cfg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugin.py" afterPath="$PROJECT_DIR$/plugin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/plugin.py" afterPath="$PROJECT_DIR$/libs/plugin.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
-    <ignored path="plugin_serial_dtu.iws" />
+    <ignored path="plugin_serial_modbus.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,39 +46,45 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
-    <favorites_list name="plugin_serial_dtu" />
+    <favorites_list name="plugin_serial_modbus" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="plugin.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="plugin.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/plugin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="4170">
-              <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-              <folding>
-                <element signature="e#209#218#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.07401316" vertical-offset="0" max-vertical-offset="1800">
+              <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setting.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="setting.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.52380955" vertical-offset="147" max-vertical-offset="525">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding>
-                <element signature="e#68#77#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plugin.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libs/plugin.py">
+      <file leaf-file-name="logging.conf" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/logging.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="1200">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="plugin.cfg" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugin.cfg">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+              <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -66,56 +95,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
               <caret line="0" column="2" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="311" max-vertical-offset="900">
-              <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plugin.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugin.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-              <caret line="0" column="19" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plugin.cfg" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugin.cfg">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="285">
-              <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logging.conf" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logging.conf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="915">
-              <caret line="34" column="46" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utils.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libs/utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="249" max-vertical-offset="2025">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -134,34 +113,15 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/libs/modbusdefine.py" />
-        <option value="$PROJECT_DIR$/protocol.txt" />
-        <option value="$PROJECT_DIR$/test/test_serial.py" />
-        <option value="$PROJECT_DIR$/serial_dtu.log" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/serial_dtu.cfg" />
-        <option value="$PROJECT_DIR$/serial_dtu.py" />
-        <option value="$PROJECT_DIR$/protocols/modbus.py" />
-        <option value="$PROJECT_DIR$/libs/daemon.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/plugin.json" />
         <option value="$PROJECT_DIR$/plugin.cfg" />
-        <option value="$PROJECT_DIR$/plugin.log" />
-        <option value="$PROJECT_DIR$/logging.cfg" />
-        <option value="$PROJECT_DIR$/libs/utils.py" />
-        <option value="$PROJECT_DIR$/devices.txt" />
-        <option value="$PROJECT_DIR$/logs/plugin.log" />
-        <option value="$PROJECT_DIR$/libs/plugin.py" />
         <option value="$PROJECT_DIR$/plugin.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/setting.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="709" />
+    <option name="height" value="705" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -189,18 +149,17 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="plugin_serial_dtu" />
+              <option name="myItemId" value="plugin_serial_modbus" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="plugin_serial_dtu" />
+              <option name="myItemId" value="plugin_serial_modbus" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -210,7 +169,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="plugin_serial_dtu" />
+              <option name="myItemId" value="plugin_serial_modbus" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -224,7 +183,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="plugin_serial_dtu" />
+              <option name="myItemId" value="plugin_serial_modbus" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -236,63 +195,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugin_serial_modbus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugin_serial_modbus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="channels" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="FullScreen" value="false" />
     <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../plugin_tcpclient_modbus" />
-    <property name="ignore_missing_gitignore" value="true" />
-    <property name="recentsLimit" value="5" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/daviddeng/Work/projects/plugin_serial_dtu/serial_dtu.py" />
   </component>
-  <component name="PyConsoleOptionsProvider">
-    <option name="myPythonConsoleState">
-      <console-settings />
-    </option>
-  </component>
-  <component name="RunManager" selected="Python.plugin">
-    <configuration default="false" name="serial_dtu" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="plugin_serial_dtu" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/serial_dtu.py" />
-      <option name="PARAMETERS" value="" />
-      <RunnerSettings RunnerId="PyDebugRunner" />
-      <ConfigurationWrapper RunnerId="PyDebugRunner" />
-      <method />
-    </configuration>
-    <configuration default="false" name="plugin" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="plugin_serial_dtu" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plugin.py" />
-      <option name="PARAMETERS" value="" />
-      <RunnerSettings RunnerId="PyDebugRunner" />
-      <ConfigurationWrapper RunnerId="PyDebugRunner" />
-      <method />
-    </configuration>
+  <component name="RunManager">
     <configuration default="true" type="tests" factoryName="py.test">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -302,7 +230,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="plugin_serial_dtu" />
+      <module name="plugin_serial_modbus" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -326,7 +254,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="plugin_serial_dtu" />
+      <module name="plugin_serial_modbus" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -349,7 +277,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="plugin_serial_dtu" />
+      <module name="plugin_serial_modbus" />
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
       <method />
@@ -363,7 +291,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="plugin_serial_dtu" />
+      <module name="plugin_serial_modbus" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -385,7 +313,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="plugin_serial_dtu" />
+      <module name="plugin_serial_modbus" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -404,7 +332,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="plugin_serial_dtu" />
+      <module name="plugin_serial_modbus" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -414,16 +342,7 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Python.serial_dtu" />
-      <item index="1" class="java.lang.String" itemvalue="Python.plugin" />
-    </list>
-    <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.plugin" />
-        <item index="1" class="java.lang.String" itemvalue="Python.serial_dtu" />
-      </list>
-    </recent_temporary>
+    <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
@@ -431,107 +350,22 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ca7a485e-6405-4048-bcd1-994eb8bc833f" name="Default" comment="" />
-      <created>1406678897816</created>
-      <updated>1406678897816</updated>
+      <changelist id="5c3a6c7a-74e3-43ab-9e93-d027dcba2354" name="Default" comment="" />
+      <created>1417010461919</created>
+      <updated>1417010461919</updated>
     </task>
-    <task id="LOCAL-00001" summary="初始化项目">
-      <created>1406721592347</created>
-      <updated>1406721592347</updated>
-    </task>
-    <task id="LOCAL-00002" summary="功能初步实现">
-      <created>1406795964333</created>
-      <updated>1406795964333</updated>
-    </task>
-    <task id="LOCAL-00003" summary="功能优化">
-      <created>1406810443858</created>
-      <updated>1406810443858</updated>
-    </task>
-    <task id="LOCAL-00004" summary="功能优化">
-      <created>1406814385621</created>
-      <updated>1406814385621</updated>
-    </task>
-    <task id="LOCAL-00005" summary="功能优化">
-      <created>1406814598127</created>
-      <updated>1406814598128</updated>
-    </task>
-    <task id="LOCAL-00006" summary="功能优化，device_id格式修改为device_network/device_addr/device_port">
-      <created>1407144613159</created>
-      <updated>1407144613159</updated>
-    </task>
-    <task id="LOCAL-00007" summary="功能优化，device_id格式修改为device_network/device_addr/device_port">
-      <created>1407144981301</created>
-      <updated>1407144981301</updated>
-    </task>
-    <task id="LOCAL-00008" summary="MQTT协议优化">
-      <created>1408332978920</created>
-      <updated>1408332978920</updated>
-    </task>
-    <task id="LOCAL-00009" summary="MQTT协议优化">
-      <created>1408333032730</created>
-      <updated>1408333032730</updated>
-    </task>
-    <task id="LOCAL-00010" summary="MQTT协议优化">
-      <created>1408449886800</created>
-      <updated>1408449886800</updated>
-    </task>
-    <task id="LOCAL-00011" summary="MQTT协议优化">
-      <created>1416836422398</created>
-      <updated>1416836422398</updated>
-    </task>
-    <task id="LOCAL-00012" summary="修改linux获取ip的错误">
-      <created>1416836745548</created>
-      <updated>1416836745548</updated>
-    </task>
-    <task id="LOCAL-00013" summary="修改mqtt客户端">
-      <created>1416845815090</created>
-      <updated>1416845815090</updated>
-    </task>
-    <task id="LOCAL-00014" summary="优化插件启动方式">
-      <created>1416878857386</created>
-      <updated>1416878857386</updated>
-    </task>
-    <task id="LOCAL-00015" summary="优化插件架构">
-      <created>1416883685676</created>
-      <updated>1416883685676</updated>
-    </task>
-    <task id="LOCAL-00016" summary="修正Daemo情况下，由于路径没有重设而导致的文件打开错误">
-      <created>1416898438326</created>
-      <updated>1416898438326</updated>
-    </task>
-    <task id="LOCAL-00017" summary="修正Daemo情况下，由于路径没有重设而导致的文件打开错误">
-      <created>1416899090848</created>
-      <updated>1416899090848</updated>
-    </task>
-    <task id="LOCAL-00018" summary="解决由于启动顺序的问题，导致启动错误的问题">
-      <created>1416900835625</created>
-      <updated>1416900835625</updated>
-    </task>
-    <task id="LOCAL-00019" summary="解决由于启动顺序的问题，导致启动错误的问题">
-      <created>1416901528655</created>
-      <updated>1416901528655</updated>
-    </task>
-    <task id="LOCAL-00020" summary="解决由于启动顺序的问题，导致启动错误的问题">
-      <created>1416901642452</created>
-      <updated>1416901642452</updated>
-    </task>
-    <task id="LOCAL-00021" summary="解决由于启动顺序的问题，导致启动错误的问题">
-      <created>1416901784561</created>
-      <updated>1416901784561</updated>
-    </task>
-    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="709" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="705" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24140625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -540,7 +374,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -561,419 +394,96 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="初始化项目" />
-    <MESSAGE value="功能初步实现" />
-    <MESSAGE value="功能优化" />
-    <MESSAGE value="功能优化，device_id格式修改为device_network/device_addr/device_port" />
-    <MESSAGE value="MQTT协议优化" />
-    <MESSAGE value="修改linux获取ip的错误" />
-    <MESSAGE value="修改mqtt客户端" />
-    <MESSAGE value="优化插件启动方式" />
-    <MESSAGE value="优化插件架构" />
-    <MESSAGE value="修正Daemo情况下，由于路径没有重设而导致的文件打开错误" />
-    <MESSAGE value="解决由于启动顺序的问题，导致启动错误的问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="解决由于启动顺序的问题，导致启动错误的问题" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/libs/plugin.py</url>
-          <line>72</line>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/setting.py</url>
-          <line>25</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/libs/utils.py</url>
-          <line>20</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-      </breakpoints>
-      <breakpoints-dialog>
-        <breakpoints-dialog />
-      </breakpoints-dialog>
-      <option name="time" value="61" />
-    </breakpoint-manager>
+    <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
+    <entry file="file://$PROJECT_DIR$/plugin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="180">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="735" max-vertical-offset="1860">
+          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/setting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="375">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/modbusdefine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="375">
-          <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="180">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="120">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="945">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="180">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="945">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="180">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="945">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="180">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="180">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="120">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="605">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/plugin/lib/python2.7/site-packages/serial/serialposix.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="4244" max-vertical-offset="10620">
-          <caret line="291" column="0" selection-start-line="291" selection-start-column="0" selection-end-line="291" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/plugin/lib/python2.7/site-packages/pymodbus/bit_read_message.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="3540">
-          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/plugin/lib/python2.7/site-packages/pymodbus/constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1067" max-vertical-offset="3390">
-          <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/plugin/lib/python2.7/site-packages/pymodbus/pdu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.651786" vertical-offset="3294" max-vertical-offset="3630">
-          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/test_serial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/plugin/lib/python2.7/site-packages/serial/serialutil.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8355">
-          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/plugin/lib/python2.7/site-packages/serial/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/threading.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="11265" max-vertical-offset="20025">
-          <caret line="760" column="0" selection-start-line="760" selection-start-column="0" selection-end-line="760" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/plugin/lib/python2.7/site-packages/pymodbus/register_read_message.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1561" max-vertical-offset="5205">
-          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/plugin/lib/python2.7/site-packages/pymodbus/client/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33240223" vertical-offset="1411" max-vertical-offset="2070">
-          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/plugin/lib/python2.7/site-packages/pymodbus/client/sync.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33240223" vertical-offset="946" max-vertical-offset="5445">
-          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/plugin/lib/python2.7/site-packages/pymodbus/transaction.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31233597" vertical-offset="796" max-vertical-offset="13035">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/encoder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3263" max-vertical-offset="6810">
-          <caret line="231" column="38" selection-start-line="231" selection-start-column="38" selection-end-line="231" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3488" max-vertical-offset="5340">
-          <caret line="242" column="0" selection-start-line="242" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/plugin/lib/python2.7/site-packages/paho/mqtt/client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="18080" max-vertical-offset="33225">
-          <caret line="1217" column="0" selection-start-line="1217" selection-start-column="0" selection-end-line="1217" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/base_protocol.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/const.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/modbusdefine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
-          <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/daemon.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1526" max-vertical-offset="2175">
-          <caret line="139" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protocol.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="480">
-          <caret line="14" column="48" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="375">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protocols/modbus.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/ConfigParser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="8964" max-vertical-offset="11385">
-          <caret line="606" column="0" selection-start-line="606" selection-start-column="0" selection-end-line="606" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/logging/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="13749" max-vertical-offset="25995">
-          <caret line="925" column="0" selection-start-line="925" selection-start-column="0" selection-end-line="925" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/gateway/lib/python2.7/site-packages/mosquitto.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="26909" max-vertical-offset="30000">
-          <caret line="1811" column="0" selection-start-line="1811" selection-start-column="0" selection-end-line="1811" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/logging.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="915">
-          <caret line="34" column="46" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plugin.cfg">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="315">
+          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/devices.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378">
-          <caret line="0" column="2" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/plugin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1200">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="311" max-vertical-offset="900">
-          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugin.json">
-      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-          <caret line="0" column="19" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="249" max-vertical-offset="2025">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <caret line="0" column="2" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plugin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="4170">
-          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-          <folding>
-            <element signature="e#209#218#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="2962" max-vertical-offset="3990">
+          <caret line="240" column="0" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/devices.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <caret line="0" column="2" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52380955" vertical-offset="147" max-vertical-offset="525">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="e#68#77#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="608">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logging.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugin.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07401316" vertical-offset="0" max-vertical-offset="1800">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
