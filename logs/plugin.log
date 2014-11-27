@@ -1,0 +1,41 @@
+Thu, 27 Nov 2014 18:45:23 - plugin.py:27 - plugin - DEBUG - load config info success，{
+  "channel_type": "serialrtu",
+  "protocol_type": "modbus",
+  "mqtt": {
+    "server": "127.0.0.1",
+    "port": 1883,
+    "client_id": "usr1",
+    "gateway_topic": "gateway"
+  },
+  "channel": {
+    "network_name": "usr1",
+    "port": "/dev/ttyUSB0",
+    "baund": 9600
+  },
+  "protocol": {}
+}
+Thu, 27 Nov 2014 18:45:23 - plugin.py:52 - plugin - DEBUG - 参数检查通过。
+Thu, 27 Nov 2014 18:45:45 - base_channel.py:67 - plugin - DEBUG - devices_info_dict加载结果{}
+Thu, 27 Nov 2014 18:45:47 - plugin.py:79 - plugin - INFO - channel进程停止，重新启动。
+Thu, 27 Nov 2014 18:45:47 - plugin.py:83 - plugin - INFO - mqtt进程停止，重新启动。
+Thu, 27 Nov 2014 18:45:47 - serialrtu.py:68 - plugin - ERROR - 连接串口失败，错误信息：OSError(2, 'No such file or directory').
+Thu, 27 Nov 2014 18:45:47 - plugin.py:85 - plugin - DEBUG - 周期处理结束
+Thu, 27 Nov 2014 18:45:47 - mqttclient.py:38 - plugin - INFO - Connected with result code 0
+Thu, 27 Nov 2014 18:46:20 - plugin.py:27 - plugin - DEBUG - load config info success，{
+  "channel_type": "serialrtu",
+  "protocol_type": "modbus",
+  "mqtt": {
+    "server": "127.0.0.1",
+    "port": 1883,
+    "client_id": "usr1",
+    "gateway_topic": "gateway"
+  },
+  "channel": {
+    "network_name": "usr1",
+    "port": "/dev/ttyUSB0",
+    "baund": 9600
+  },
+  "protocol": {}
+}
+Thu, 27 Nov 2014 18:46:20 - plugin.py:52 - plugin - DEBUG - 参数检查通过。
+Thu, 27 Nov 2014 18:46:20 - base_channel.py:53 - plugin - DEBUG - devices.txt内容:{"usr1/1/0": {"device_addr": "1", "device_port": 0, "device_type": "yykjmt", "device_id": "usr1/1/0"}}

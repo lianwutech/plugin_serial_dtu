@@ -21,7 +21,7 @@ logger = logging.getLogger('plugin')
 config_info = load_config(config_file_name)
 
 # 通过工作目录获取当前插件名称
-plugin_name = PROCEDURE_PATH.split("/")[-1]
+plugin_name = procedure_path.split("/")[-1]
 
 
 # 主函数

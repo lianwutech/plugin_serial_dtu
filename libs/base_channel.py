@@ -48,7 +48,7 @@ class BaseChannel(threading.Thread):
     def load_devices_info_dict(self):
         devices_info_dict = dict()
         if os.path.exists(self.devices_file_name):
-            devices_file = open(self.devices_file_name, "rw+")
+            devices_file = open(self.devices_file_name, "r+")
             content = devices_file.read()
             logger.debug("devices.txt内容:%s" % content)
             devices_file.close()
@@ -65,19 +65,6 @@ class BaseChannel(threading.Thread):
         except Exception, e:
             logger.error("load devices info fail，%r" % e)
         logger.debug("devices_info_dict加载结果%r" % devices_info_dict)
-
-        # 上报设备信息
-        for device_id in devices_info_dict:
-            device_info = devices_info_dict[device_id]
-            device_msg = {
-                "device_id": device_id,
-                "device_type": device_info["device_type"],
-                "device_addr": device_info["device_addr"],
-                "device_port": device_info["device_port"],
-                "protocol": self.protocol.protocol,
-                "data": ""
-            }
-            self.mqtt_client.publish_data(device_msg)
         self.devices_info_dict = devices_info_dict
 
     # 设备检查
