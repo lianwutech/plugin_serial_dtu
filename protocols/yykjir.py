@@ -19,6 +19,7 @@ class YykjifProtocol(BaseProtocol):
         # 修改协议名称
         self.protocol = "yykjir"
         self.device_type = "yykjir"
+        self.device_cmd_msg = None
 
     @staticmethod
     def check_config(protocol_params):
@@ -50,11 +51,22 @@ class YykjifProtocol(BaseProtocol):
             result_data = None
 
         if result_data is not None:
+            if self.device_cmd_msg is not None:
+                device_id = self.device_cmd_msg["device_id"]
+                device_addr = self.device_cmd_msg["device_addr"]
+                device_port = self.device_cmd_msg["device_port"]
+                device_type = self.device_cmd_msg["device_type"]
+            else:
+                device_id = "%s/%s/%d" % (network_name, self.device_addr, self.device_port)
+                device_addr = self.device_addr
+                device_port = self.device_port
+                device_type = self.device_type
+
             device_data_msg = {
-                "device_id": "%s/%s/%d" % (network_name, self.device_addr, self.device_port),
-                "device_addr": self.device_addr,
-                "device_port": self.device_port,
-                "device_type": self.device_type,
+                "device_id": device_id,
+                "device_addr": device_addr,
+                "device_port": device_port,
+                "device_type": device_type,
                 "protocol": self.protocol,
                 "data": result_data
             }
@@ -68,6 +80,7 @@ class YykjifProtocol(BaseProtocol):
         :param device_cmd_msg:
         :return:
         """
+        self.device_cmd_msg = device_cmd_msg
         if device_cmd_msg["device_type"] == self.device_type:
             device_cmd = device_cmd_msg["command"]
             device_cmd = device_cmd.strip()

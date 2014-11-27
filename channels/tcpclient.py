@@ -5,9 +5,6 @@
 TCP-Client通道类
 通过调用管理类对象的process_data函数实现信息的发送。
 仅支持单个设备
-配置项说明：
-    host:主机地址
-    port:主机端口
 """
 
 import time
@@ -21,8 +18,8 @@ logger = logging.getLogger('plugin')
 
 
 class TcpClientChannel(BaseChannel):
-    def __init__(self, channel_params, channel_type, mqtt_client, devices_file_name):
-        BaseChannel.__init__(self, channel_params, channel_type, mqtt_client, devices_file_name)
+    def __init__(self, channel_params, devices_file_name, protocol, mqtt_client):
+        BaseChannel.__init__(self, channel_params, devices_file_name, protocol, mqtt_client)
         self.host = self.channel_params.get("host", "127.0.0.1")
         self.port = self.channel_params.get("port", 0)
         self.protocol.set_device_info(self.host, self.port)
@@ -35,6 +32,21 @@ class TcpClientChannel(BaseChannel):
         return BaseChannel.check_config(channel_params)
 
     def run(self):
+
+        # 首先上报设备数据
+        for device_id in self.devices_info_dict:
+            device_info = self.devices_info_dict[device_id]
+            device_msg = {
+                "device_id": device_info["device_id"],
+                "device_type": device_info["device_type"],
+                "device_addr": device_info["device_addr"],
+                "device_port": device_info["device_port"],
+                "protocol": self.protocol.protocol,
+                "data": ""
+            }
+            self.mqtt_client.publish_data(device_msg)
+
+        # 创建连接
         # Create a TCP/IP socket
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         # Connect the socket to the port where the server is listening

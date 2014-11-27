@@ -65,6 +65,7 @@ class BaseChannel(threading.Thread):
         except Exception, e:
             logger.error("load devices info fail，%r" % e)
         logger.debug("devices_info_dict加载结果%r" % devices_info_dict)
+
         self.devices_info_dict = devices_info_dict
 
     # 设备检查
