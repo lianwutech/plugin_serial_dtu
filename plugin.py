@@ -2,9 +2,14 @@
 # -*- coding:utf-8 -*-
 """
     modbus网络的串口数据采集插件
+    1、device_id的组成方式为ip_port_slaveid
+    2、设备类型为0，协议类型为modbus
+    3、devices_info_dict需要持久化设备信息，启动时加载，变化时写入
+    4、device_cmd内容：json字符串
 """
 
 import time
+
 from setting import *
 from libs.daemon import Daemon
 from libs.plugin import *
@@ -20,13 +25,12 @@ logger = logging.getLogger('plugin')
 # 配置信息
 config_info = load_config(config_file_name)
 
-# 通过工作目录获取当前插件名称
-plugin_name = procedure_path.split("/")[-1]
-
 
 # 主函数
 class PluginDaemon(Daemon):
     def _run(self):
+        # 切换工作目录，一定要保留
+        os.chdir(cur_file_dir())
 
         if "channel_type" not in config_info \
                 or "protocol_type" not in config_info \
