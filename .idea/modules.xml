@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/plugin_serial_modbus.iml" filepath="$PROJECT_DIR$/.idea/plugin_serial_modbus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/plugin_serialrtu_modbus.iml" filepath="$PROJECT_DIR$/.idea/plugin_serialrtu_modbus.iml" />
     </modules>
   </component>
 </project>
