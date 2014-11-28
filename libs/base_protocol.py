@@ -11,8 +11,8 @@ class BaseProtocol(object):
     def __init__(self, protocol_params):
         self.protocol_params = protocol_params
         self.protocol = "basic"
-        self.device_addr = "0"
-        self.device_port = 0
+        self.device_addr = "addr1"
+        self.device_port = "port1"
         self.device_type = "basic"
 
     @staticmethod
@@ -21,8 +21,9 @@ class BaseProtocol(object):
 
     def set_device_info(self, device_addr, device_port):
         # 设置默认的设备地址和端口
-        self.device_addr = device_addr
-        self.device_port = device_port
+        # 设备地址和端口都是字符串类型
+        self.device_addr = str(device_addr)
+        self.device_port = str(device_port)
 
     def process_data(self, network_name, data):
         """

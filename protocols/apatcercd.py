@@ -35,7 +35,7 @@ class ApatcercdProtocol(BaseProtocol):
             device_port = self.device_cmd_msg["device_port"]
             device_type = self.device_cmd_msg["device_type"]
         else:
-            device_id = "%s/%s/%d" % (network_name, self.device_addr, self.device_port)
+            device_id = "%s/%s/%s" % (network_name, self.device_addr, self.device_port)
             device_addr = self.device_addr
             device_port = self.device_port
             device_type = self.device_type

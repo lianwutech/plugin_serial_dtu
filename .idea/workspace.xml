@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bacf5f9-63fe-4452-9b26-b2b9c6df2191" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/protocols/apatcercd.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/base_channel.py" afterPath="$PROJECT_DIR$/libs/base_channel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channels/httpclient.py" afterPath="$PROJECT_DIR$/channels/httpclient.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channels/httpserver.py" afterPath="$PROJECT_DIR$/channels/httpserver.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protocols/modbus.py" afterPath="$PROJECT_DIR$/protocols/modbus.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channels/serialrtu.py" afterPath="$PROJECT_DIR$/channels/serialrtu.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channels/serialserver.py" afterPath="$PROJECT_DIR$/channels/serialserver.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channels/tcpclient.py" afterPath="$PROJECT_DIR$/channels/tcpclient.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channels/tcprtu.py" afterPath="$PROJECT_DIR$/channels/tcprtu.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channels/tcpserver.py" afterPath="$PROJECT_DIR$/channels/tcpserver.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channels/udpclient.py" afterPath="$PROJECT_DIR$/channels/udpclient.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channels/udpserver.py" afterPath="$PROJECT_DIR$/channels/udpserver.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protocols/apatcercd.py" afterPath="$PROJECT_DIR$/protocols/apatcercd.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/base_protocol.py" afterPath="$PROJECT_DIR$/libs/base_protocol.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protocols/yykjir.py" afterPath="$PROJECT_DIR$/protocols/yykjir.py" />
     </list>
@@ -401,7 +391,11 @@
       <created>1417092645468</created>
       <updated>1417092645468</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="模版代码同步">
+      <created>1417096545590</created>
+      <updated>1417096545590</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -420,12 +414,12 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -444,7 +438,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="启动后未上报设备数据的错误" />
-    <option name="LAST_COMMIT_MESSAGE" value="启动后未上报设备数据的错误" />
+    <MESSAGE value="模版代码同步" />
+    <option name="LAST_COMMIT_MESSAGE" value="模版代码同步" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -452,6 +447,56 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/plugin.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="504" max-vertical-offset="1920">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="e#210#221#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/channels/serialrtu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="3240">
+          <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/base_channel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="1605">
+          <caret line="60" column="12" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="555">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/devices.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <caret line="0" column="102" selection-start-line="0" selection-start-column="102" selection-end-line="0" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/plugin.cfg">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
