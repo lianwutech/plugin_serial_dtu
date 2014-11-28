@@ -12,7 +12,7 @@ import threading
 logger = logging.getLogger('plugin')
 
 
-class MQTTClient(threading.Thread):
+class MQTTClient(object):
     def __init__(self, mqtt_config):
         self.channel = None
         self.mqtt_config = mqtt_config
@@ -21,7 +21,7 @@ class MQTTClient(threading.Thread):
         self.server_port = mqtt_config.get("port")
         self.client_id = mqtt_config.get("client_id")
         self.gateway_topic = mqtt_config.get("gateway_topic")
-        threading.Thread.__init__(self)
+        self.thread = None
 
     @staticmethod
     def check_config(mqtt_params):
@@ -88,3 +88,17 @@ class MQTTClient(threading.Thread):
             self.mqtt_client.loop_forever()
         except Exception, e:
             logger.error("MQTT链接失败，错误内容:%r" % e)
+
+    def start(self):
+        if self.thread is not None:
+            # 如果进程非空，则等待退出
+            self.thread.join(1)
+        # 启动一个新的线程来运行
+        self.thread = threading.Thread(target=self.run)
+        self.thread.start()
+
+    def isAlive(self):
+        if self.thread is not None:
+            return self.thread.isAlive()
+        else:
+            return False

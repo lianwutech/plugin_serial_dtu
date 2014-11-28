@@ -15,7 +15,7 @@ import threading
 logger = logging.getLogger('plugin')
 
 
-class BaseChannel(threading.Thread):
+class BaseChannel(object):
     """
     基础设备通信类
     针对每种通信模式实现各自的内容
@@ -29,7 +29,7 @@ class BaseChannel(threading.Thread):
         self.devices_file_name = devices_file_name
         self.devices_info_dict = {}
         self.load_devices_info_dict()
-        threading.Thread.__init__(self)
+        self.thread = None
 
     @staticmethod
     def check_config(channel_params):
@@ -99,3 +99,17 @@ class BaseChannel(threading.Thread):
         else:
             logger.debug("设备已存在于设备列表中。")
 
+    def start(self):
+        if self.thread is not None:
+            # 如果进程非空，则等待退出
+            self.thread.join(1)
+
+        # 启动一个新的线程来运行
+        self.thread = threading.Thread(target=self.run)
+        self.thread.start()
+
+    def isAlive(self):
+        if self.thread is not None:
+            return self.thread.isAlive()
+        else:
+            return False
