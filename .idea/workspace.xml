@@ -3,19 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8bacf5f9-63fe-4452-9b26-b2b9c6df2191" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/base_channel.py" afterPath="$PROJECT_DIR$/libs/base_channel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channels/httpclient.py" afterPath="$PROJECT_DIR$/channels/httpclient.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channels/httpserver.py" afterPath="$PROJECT_DIR$/channels/httpserver.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/mqttclient.py" afterPath="$PROJECT_DIR$/libs/mqttclient.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugin.cfg" afterPath="$PROJECT_DIR$/plugin.cfg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugin.py" afterPath="$PROJECT_DIR$/plugin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channels/serialrtu.py" afterPath="$PROJECT_DIR$/channels/serialrtu.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channels/serialserver.py" afterPath="$PROJECT_DIR$/channels/serialserver.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channels/tcpclient.py" afterPath="$PROJECT_DIR$/channels/tcpclient.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channels/tcprtu.py" afterPath="$PROJECT_DIR$/channels/tcprtu.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channels/tcpserver.py" afterPath="$PROJECT_DIR$/channels/tcpserver.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channels/udpclient.py" afterPath="$PROJECT_DIR$/channels/udpclient.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channels/udpserver.py" afterPath="$PROJECT_DIR$/channels/udpserver.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="plugin_serialrtu_modbus.iws" />
@@ -72,8 +59,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6862745" vertical-offset="255" max-vertical-offset="915">
-              <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.95098037" vertical-offset="258" max-vertical-offset="945">
+              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -444,7 +431,11 @@
       <created>1417402769200</created>
       <updated>1417402769200</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="模版代码同步">
+      <created>1417406045632</created>
+      <updated>1417406045632</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -456,7 +447,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24941361" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24941361" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.246875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -834,6 +825,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1350">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -894,8 +886,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6862745" vertical-offset="255" max-vertical-offset="915">
-          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.95098037" vertical-offset="258" max-vertical-offset="945">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding />
         </state>
       </provider>
