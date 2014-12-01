@@ -22,8 +22,8 @@ class BaseProtocol(object):
     def set_device_info(self, device_addr, device_port):
         # 设置默认的设备地址和端口
         # 设备地址和端口都是字符串类型
-        self.device_addr = str(device_addr)
-        self.device_port = str(device_port)
+        self.device_addr = str(device_addr).replace(".", "_").replace(" ", "")
+        self.device_port = str(device_port).replace(".", "_").replace(" ", "")
 
     def process_data(self, network_name, data):
         """

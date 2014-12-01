@@ -62,6 +62,10 @@ class PluginDaemon(Daemon):
         # 此处需注意启动顺序，先创建mqtt对象，然后创建channel对象，mqtt对象设置channel属性，mqtt才能够链接服务器
         # 1、初始化mqttclient对象
         mqtt_client = MQTTClient(config_info["mqtt"], network_name)
+        result = mqtt_client.connect()
+        if not result:
+            logger.fatal("mqtt connect fail.")
+            return
 
         # 2、初始化protocol对象
         protocol = protocol_class(config_info["protocol"])

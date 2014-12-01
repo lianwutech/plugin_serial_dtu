@@ -63,6 +63,14 @@ class MQTTClient(object):
     def set_channel(self, channel):
         self.channel = channel
 
+    def connect(self):
+        try:
+            self.mqtt_client.connect(self.server_addr, self.server_port, 60)
+            return True
+        except Exception, e:
+            logger.error("MQTT链接失败，错误内容:%r" % e)
+            return False
+
     def publish_data(self, device_data_msg):
         """
         发布数据
@@ -78,7 +86,6 @@ class MQTTClient(object):
 
     def run(self):
         try:
-            self.mqtt_client.connect(self.server_addr, self.server_port, 60)
             self.mqtt_client.loop_forever()
         except Exception, e:
             logger.error("MQTT链接失败，错误内容:%r" % e)
