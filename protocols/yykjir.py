@@ -17,7 +17,7 @@ class YykjifProtocol(BaseProtocol):
     def __init__(self, protocol_params):
         BaseProtocol.__init__(self, protocol_params)
         # 修改协议名称
-        self.protocol = "yykjir"
+        self.protocol_type = "yykjir"
         self.device_type = "yykjir"
         self.device_cmd_msg = None
 
@@ -67,7 +67,7 @@ class YykjifProtocol(BaseProtocol):
                 "device_addr": device_addr,
                 "device_port": device_port,
                 "device_type": device_type,
-                "protocol": self.protocol,
+                "protocol": self.protocol_type,
                 "data": result_data
             }
             device_data_msg_list.append(device_data_msg)

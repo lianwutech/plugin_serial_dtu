@@ -17,7 +17,7 @@ class ApatcercdProtocol(BaseProtocol):
     def __init__(self, protocol_params):
         BaseProtocol.__init__(self, protocol_params)
         # 修改协议名称
-        self.protocol = "apatcercd"
+        self.protocol_type = "apatcercd"
         self.device_type = "apatcercd"
         # 缓存命令来方便解析数据
         self.device_cmd_msg = None
@@ -45,7 +45,7 @@ class ApatcercdProtocol(BaseProtocol):
             "device_addr": device_addr,
             "device_port": device_port,
             "device_type": device_type,
-            "protocol": self.protocol,
+            "protocol": self.protocol_type,
             "data": data
         }
         device_data_msg_list.append(device_data_msg)

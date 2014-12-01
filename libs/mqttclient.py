@@ -40,6 +40,7 @@ class MQTTClient(object):
                 logger.error("消息内容错误，%r" % msg.payload)
                 return
 
+            cmd_msg["device_id"] = msg.topic
             # 调用channel处理指令
             if self.channel is not None:
                 self.channel.process_cmd(cmd_msg)

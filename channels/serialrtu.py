@@ -29,8 +29,14 @@ class SerialRtuChannel(BaseChannel):
         self.bytesize = channel_params.get("bytesize", serial.EIGHTBITS)
         self.timeout = channel_params.get("timeout", 2)
         self.protocol.set_device_info(self.port, self.baund)
-        # 通信对象
-        self.modbus_client = None
+        # modbus通信对象
+        self.modbus_client = ModbusSerialClient(method='rtu',
+                                                port=self.port,
+                                                baudrate=self.baund,
+                                                stopbits=self.stopbits,
+                                                parity=self.parity,
+                                                bytesize=self.bytesize,
+                                                timeout=self.timeout)
 
     @staticmethod
     def check_config(channel_params):
@@ -48,19 +54,11 @@ class SerialRtuChannel(BaseChannel):
                 "device_type": device_info["device_type"],
                 "device_addr": device_info["device_addr"],
                 "device_port": device_info["device_port"],
-                "protocol": self.protocol.protocol,
+                "protocol": self.protocol.protocol_type,
                 "data": ""
             }
             self.mqtt_client.publish_data(device_msg)
 
-        # 创建连接
-        self.modbus_client = ModbusSerialClient(method='rtu',
-                                                port=self.port,
-                                                baudrate=self.baund,
-                                                stopbits=self.stopbits,
-                                                parity=self.parity,
-                                                bytesize=self.bytesize,
-                                                timeout=self.timeout)
         try:
             self.modbus_client.connect()
             logger.debug("连接串口成功.")
@@ -79,6 +77,10 @@ class SerialRtuChannel(BaseChannel):
         device_cmd = device_cmd_msg["command"]
         if device_id in self.devices_info_dict:
             device_info = self.devices_info_dict[device_id]
+
+        if device_info is None:
+            logger.error("严重错误，设备%s未找到." % device_id)
+            return
 
         if device_cmd["func_code"] == const.fc_read_coils or device_cmd["func_code"] == const.fc_read_discrete_inputs:
             req_result = self.modbus_client.read_coils(device_cmd["addr"],
@@ -204,7 +206,7 @@ class SerialRtuChannel(BaseChannel):
                 "device_addr": device_info["device_addr"],
                 "device_port": device_info["device_port"],
                 "device_type": device_info["device_type"],
-                "protocol": self.protocol.protocol,
+                "protocol": self.protocol.protocol_type,
                 "data": device_data
             }
             self.mqtt_client.publish_data(device_data_msg)

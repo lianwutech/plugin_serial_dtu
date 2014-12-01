@@ -10,7 +10,7 @@
 class BaseProtocol(object):
     def __init__(self, protocol_params):
         self.protocol_params = protocol_params
-        self.protocol = "basic"
+        self.protocol_type = "basic"
         self.device_addr = "addr1"
         self.device_port = "port1"
         self.device_type = "basic"

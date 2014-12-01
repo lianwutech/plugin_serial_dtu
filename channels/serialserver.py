@@ -33,7 +33,7 @@ class SerialChannel(BaseChannel):
                 "device_type": device_info["device_type"],
                 "device_addr": device_info["device_addr"],
                 "device_port": device_info["device_port"],
-                "protocol": self.protocol.protocol,
+                "protocol": self.protocol.protocol_type,
                 "data": ""
             }
             self.mqtt_client.publish_data(device_msg)
