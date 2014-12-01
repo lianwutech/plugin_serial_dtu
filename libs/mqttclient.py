@@ -46,7 +46,7 @@ class MQTTClient(object):
 
             return
 
-        self.mqtt_client = mqtt.Client()
+        self.mqtt_client = mqtt.Client(client_id=self.client_id)
         self.mqtt_client.on_connect = on_connect
         self.mqtt_client.on_message = on_message
 
