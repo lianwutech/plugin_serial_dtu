@@ -6,7 +6,6 @@ mqttclient类
 
 import json
 import logging
-import mosquitto
 import threading
 import paho.mqtt.client as mqtt
 
@@ -14,32 +13,22 @@ logger = logging.getLogger('plugin')
 
 
 class MQTTClient(object):
-    def __init__(self, mqtt_config):
+    def __init__(self, mqtt_config, network_name):
         self.channel = None
         self.mqtt_config = mqtt_config
-        self.mqtt_client = None
         self.server_addr = mqtt_config.get("server")
         self.server_port = mqtt_config.get("port")
         self.client_id = mqtt_config.get("client_id")
         self.gateway_topic = mqtt_config.get("gateway_topic")
         self.thread = None
+        self.network_name = network_name
 
-    @staticmethod
-    def check_config(mqtt_params):
-        if "server" not in mqtt_params \
-                or "port" not in mqtt_params \
-                or "client_id" not in mqtt_params\
-                or "gateway_topic" not in mqtt_params:
-            return False
-        return True
-
-    def connect(self):
         # The callback for when the client receives a CONNACK response from the server.
         def on_connect(client, userdata, rc):
             logger.info("Connected with result code " + str(rc))
             # Subscribing in on_connect() means that if we lose the connection and
             # reconnect then subscriptions will be renewed.
-            client.subscribe("%s/#" % self.channel.network_name)
+            client.subscribe("%s/#" % self.network_name)
 
         # The callback for when a PUBLISH message is received from the server.
         def on_message(client, userdata, msg):
@@ -57,17 +46,18 @@ class MQTTClient(object):
 
             return
 
-        # self.mqtt_client = mosquitto.Mosquitto(client_id=self.client_id)
         self.mqtt_client = mqtt.Client()
         self.mqtt_client.on_connect = on_connect
         self.mqtt_client.on_message = on_message
 
-        try:
-            self.mqtt_client.connect(self.server_addr, self.server_port, 60)
-            return True
-        except Exception, e:
-            logger.error("MQTT链接失败，错误内容:%r" % e)
+    @staticmethod
+    def check_config(mqtt_params):
+        if "server" not in mqtt_params \
+                or "port" not in mqtt_params \
+                or "client_id" not in mqtt_params\
+                or "gateway_topic" not in mqtt_params:
             return False
+        return True
 
     def set_channel(self, channel):
         self.channel = channel
@@ -87,6 +77,7 @@ class MQTTClient(object):
 
     def run(self):
         try:
+            self.mqtt_client.connect(self.server_addr, self.server_port, 60)
             self.mqtt_client.loop_forever()
         except Exception, e:
             logger.error("MQTT链接失败，错误内容:%r" % e)

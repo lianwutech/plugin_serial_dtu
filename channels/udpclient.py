@@ -14,8 +14,8 @@ logger = logging.getLogger('plugin')
 
 
 class UdpClientChannel(BaseChannel):
-    def __init__(self, channel_params, devices_file_name, protocol, mqtt_client):
-        BaseChannel.__init__(self, channel_params, devices_file_name, protocol, mqtt_client)
+    def __init__(self, channel_params, devices_file_name, protocol, mqtt_client, network_name):
+        BaseChannel.__init__(self, channel_params, devices_file_name, protocol, mqtt_client, network_name)
 
     @staticmethod
     def check_config(channel_params):

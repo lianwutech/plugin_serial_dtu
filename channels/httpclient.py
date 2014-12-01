@@ -34,8 +34,8 @@ def get_dict(url):
 
 
 class HttpClientChannel(BaseChannel):
-    def __init__(self, channel_params, devices_file_name, protocol, mqtt_client):
-        BaseChannel.__init__(self, channel_params, devices_file_name, protocol, mqtt_client)
+    def __init__(self, channel_params, devices_file_name, protocol, mqtt_client, network_name):
+        BaseChannel.__init__(self, channel_params, devices_file_name, protocol, mqtt_client, network_name)
         self.host = self.channel_params.get("host", "127.0.0.1")
         self.port = self.channel_params.get("port", 0)
         self.protocol.set_device_info(self.host, self.port)

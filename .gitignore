@@ -52,3 +52,5 @@ docs/_build/
 target/
 
 devices.txt
+
+logs/*

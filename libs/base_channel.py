@@ -21,10 +21,10 @@ class BaseChannel(object):
     针对每种通信模式实现各自的内容
     """
 
-    def __init__(self, channel_params, devices_file_name, protocol, mqtt_client):
+    def __init__(self, channel_params, devices_file_name, protocol, mqtt_client, network_name):
         self.protocol = protocol
         self.channel_params = channel_params
-        self.network_name = channel_params.get("network_name", "network")
+        self.network_name = network_name
         self.mqtt_client = mqtt_client
         self.devices_file_name = devices_file_name
         self.devices_info_dict = {}
@@ -33,8 +33,6 @@ class BaseChannel(object):
 
     @staticmethod
     def check_config(channel_params):
-        if "network_name" not in channel_params:
-            return False
         return True
 
     def run(self):

@@ -29,7 +29,7 @@ config_info = load_config(config_file_name)
 # 主函数
 class PluginDaemon(Daemon):
     def _run(self):
-        # 切换工作目录，一定要保留
+        # 切换工作目录
         os.chdir(cur_file_dir())
 
         if "channel_type" not in config_info \
@@ -42,6 +42,7 @@ class PluginDaemon(Daemon):
 
         channel_type = config_info["channel_type"]
         protocol_type = config_info["protocol_type"]
+        network_name = config_info["network_name"]
 
         # 获取channel类对象
         channel_class = load_channel(channel_type)
@@ -58,25 +59,18 @@ class PluginDaemon(Daemon):
             logger.fatal("channel、protocol、mqtt参数配置项错误，请检查.")
             return
 
-        # 初始化mqttclient对象
-        mqtt_client = MQTTClient(config_info["mqtt"])
+        # 此处需注意启动顺序，先创建mqtt对象，然后创建channel对象，mqtt对象设置channel属性，mqtt才能够链接服务器
+        # 1、初始化mqttclient对象
+        mqtt_client = MQTTClient(config_info["mqtt"], network_name)
 
-        # 初始化protocol对象
+        # 2、初始化protocol对象
         protocol = protocol_class(config_info["protocol"])
 
-        # 初始化channel对象
-        channel = channel_class(config_info["channel"], devices_file_name, protocol, mqtt_client)
+        # 3、初始化channel对象
+        channel = channel_class(config_info["channel"], devices_file_name, protocol, mqtt_client, network_name)
 
-        # 设置通道对象
-        # 此处需注意启动顺序，先创建mqtt对象，然后创建channel对象，mqtt对象设置channel属性，mqtt才能够链接服务器
+        # 4、设置通道对象
         mqtt_client.set_channel(channel)
-        mqtt_client.connect()
-
-        # # 启动channel监听
-        # channel.start()
-        #
-        # # 启动mqtt监听
-        # mqtt_client.start()
 
         while True:
             if not channel.isAlive():

@@ -19,8 +19,8 @@ logger = logging.getLogger('plugin')
 
 
 class SerialRtuChannel(BaseChannel):
-    def __init__(self, channel_params, devices_file_name, protocol, mqtt_client):
-        BaseChannel.__init__(self, channel_params, devices_file_name, protocol, mqtt_client)
+    def __init__(self, channel_params, devices_file_name, protocol, mqtt_client, network_name):
+        BaseChannel.__init__(self, channel_params, devices_file_name, protocol, mqtt_client, network_name)
         # 配置项
         self.port = channel_params.get("port", "")
         self.baund = channel_params.get("baund", 9600)

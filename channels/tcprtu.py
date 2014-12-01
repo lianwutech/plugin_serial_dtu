@@ -18,8 +18,8 @@ logger = logging.getLogger('plugin')
 
 
 class TcpRtuChannel(BaseChannel):
-    def __init__(self, channel_params, devices_file_name, protocol, mqtt_client):
-        BaseChannel.__init__(self, channel_params, devices_file_name, protocol, mqtt_client)
+    def __init__(self, channel_params, devices_file_name, protocol, mqtt_client, network_name):
+        BaseChannel.__init__(self, channel_params, devices_file_name, protocol, mqtt_client, network_name)
         # 配置项
         self.server = channel_params.get("server", "")
         self.port = channel_params.get("port", 0)
