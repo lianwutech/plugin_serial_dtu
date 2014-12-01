@@ -39,3 +39,59 @@ Thu, 27 Nov 2014 18:46:20 - plugin.py:27 - plugin - DEBUG - load config info suc
 }
 Thu, 27 Nov 2014 18:46:20 - plugin.py:52 - plugin - DEBUG - 参数检查通过。
 Thu, 27 Nov 2014 18:46:20 - base_channel.py:53 - plugin - DEBUG - devices.txt内容:{"usr1/1/0": {"device_addr": "1", "device_port": 0, "device_type": "yykjmt", "device_id": "usr1/1/0"}}
+Mon, 01 Dec 2014 10:42:13 - plugin.py:27 - plugin - DEBUG - load config info success，{
+  "channel_type": "serialrtu",
+  "protocol_type": "modbus",
+  "mqtt": {
+    "server": "127.0.0.1",
+    "port": 1883,
+    "client_id": "usr1",
+    "gateway_topic": "gateway"
+  },
+  "channel": {
+    "network_name": "usr1",
+    "port": "/dev/ttyUSB0",
+    "baund": 9600
+  },
+  "protocol": {}
+}
+Mon, 01 Dec 2014 10:42:13 - plugin.py:56 - plugin - DEBUG - 参数检查通过。
+Mon, 01 Dec 2014 10:42:13 - base_channel.py:53 - plugin - DEBUG - devices.txt内容:{"usr1/1/0": {"device_addr": "1", "device_port": 0, "device_type": "yykjmt", "device_id": "usr1/1/0"}}
+Mon, 01 Dec 2014 10:42:13 - base_channel.py:67 - plugin - DEBUG - devices_info_dict加载结果{u'usr1/1/0': {u'device_addr': u'1', u'device_port': 0, u'device_type': u'yykjmt', u'device_id': u'usr1/1/0'}}
+Mon, 01 Dec 2014 10:42:13 - mqttclient.py:67 - plugin - ERROR - MQTT链接失败，错误内容:error(61, 'Connection refused')
+Mon, 01 Dec 2014 10:42:13 - plugin.py:83 - plugin - INFO - channel进程停止，重新启动。
+Mon, 01 Dec 2014 10:42:13 - plugin.py:87 - plugin - INFO - mqtt进程停止，重新启动。
+Mon, 01 Dec 2014 10:42:13 - plugin.py:89 - plugin - DEBUG - 周期处理结束
+Mon, 01 Dec 2014 10:42:15 - plugin.py:89 - plugin - DEBUG - 周期处理结束
+Mon, 01 Dec 2014 10:42:17 - plugin.py:89 - plugin - DEBUG - 周期处理结束
+Mon, 01 Dec 2014 10:42:28 - plugin.py:27 - plugin - DEBUG - load config info success，{
+  "channel_type": "serialrtu",
+  "protocol_type": "modbus",
+  "mqtt": {
+    "server": "127.0.0.1",
+    "port": 1883,
+    "client_id": "usr1",
+    "gateway_topic": "gateway"
+  },
+  "channel": {
+    "network_name": "usr1",
+    "port": "/dev/ttyUSB0",
+    "baund": 9600
+  },
+  "protocol": {}
+}
+Mon, 01 Dec 2014 10:42:28 - plugin.py:56 - plugin - DEBUG - 参数检查通过。
+Mon, 01 Dec 2014 10:42:28 - base_channel.py:53 - plugin - DEBUG - devices.txt内容:{"usr1/1/0": {"device_addr": "1", "device_port": 0, "device_type": "yykjmt", "device_id": "usr1/1/0"}}
+Mon, 01 Dec 2014 10:42:28 - base_channel.py:67 - plugin - DEBUG - devices_info_dict加载结果{u'usr1/1/0': {u'device_addr': u'1', u'device_port': 0, u'device_type': u'yykjmt', u'device_id': u'usr1/1/0'}}
+Mon, 01 Dec 2014 10:42:28 - mqttclient.py:67 - plugin - ERROR - MQTT链接失败，错误内容:error(61, 'Connection refused')
+Mon, 01 Dec 2014 10:42:28 - plugin.py:83 - plugin - INFO - channel进程停止，重新启动。
+Mon, 01 Dec 2014 10:42:40 - plugin.py:87 - plugin - INFO - mqtt进程停止，重新启动。
+Mon, 01 Dec 2014 10:42:41 - plugin.py:89 - plugin - DEBUG - 周期处理结束
+Mon, 01 Dec 2014 10:42:51 - mqttclient.py:84 - plugin - INFO - 向Topic(gateway)发布消息：{'protocol': 'modbus', 'device_port': 0, 'device_addr': u'1', 'device_type': u'yykjmt', 'data': '', 'device_id': u'usr1/1/0'}
+Mon, 01 Dec 2014 10:42:51 - plugin.py:89 - plugin - DEBUG - 周期处理结束
+Mon, 01 Dec 2014 10:42:53 - plugin.py:89 - plugin - DEBUG - 周期处理结束
+Mon, 01 Dec 2014 10:42:55 - plugin.py:89 - plugin - DEBUG - 周期处理结束
+Mon, 01 Dec 2014 10:42:56 - serialrtu.py:68 - plugin - ERROR - 连接串口失败，错误信息：OSError(2, 'No such file or directory').
+Mon, 01 Dec 2014 10:42:57 - plugin.py:83 - plugin - INFO - channel进程停止，重新启动。
+Mon, 01 Dec 2014 10:43:05 - mqttclient.py:84 - plugin - INFO - 向Topic(gateway)发布消息：{'protocol': 'modbus', 'device_port': 0, 'device_addr': u'1', 'device_type': u'yykjmt', 'data': '', 'device_id': u'usr1/1/0'}
+Mon, 01 Dec 2014 10:43:05 - plugin.py:89 - plugin - DEBUG - 周期处理结束

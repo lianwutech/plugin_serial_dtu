@@ -8,6 +8,7 @@ import json
 import logging
 import mosquitto
 import threading
+import paho.mqtt.client as mqtt
 
 logger = logging.getLogger('plugin')
 
@@ -56,7 +57,8 @@ class MQTTClient(object):
 
             return
 
-        self.mqtt_client = mosquitto.Mosquitto(client_id=self.client_id)
+        # self.mqtt_client = mosquitto.Mosquitto(client_id=self.client_id)
+        self.mqtt_client = mqtt.Client()
         self.mqtt_client.on_connect = on_connect
         self.mqtt_client.on_message = on_message
 
