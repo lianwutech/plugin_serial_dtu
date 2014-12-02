@@ -35,5 +35,6 @@ class ModbusProtocol(BaseProtocol):
         :param device_cmd:
         :return:
         """
+        self.device_cmd_msg = device_cmd_msg
         return ""
 

@@ -14,6 +14,8 @@ class BaseProtocol(object):
         self.device_addr = "addr1"
         self.device_port = "port1"
         self.device_type = "basic"
+        # 缓存命令来方便解析数据
+        self.device_cmd_msg = None
 
     @staticmethod
     def check_config(protocol_params):
@@ -40,5 +42,6 @@ class BaseProtocol(object):
         :param device_cmd_msg:设备指令，格式为device_id, device_addr, device_port, device_type, cmd
         :return:
         """
+        self.device_cmd_msg = device_cmd_msg
         return ""
 

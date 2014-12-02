@@ -71,7 +71,6 @@ class HttpClientChannel(BaseChannel):
         device_cmd = device_cmd_msg["command"]
         if device_id in self.devices_info_dict:
             device_info = self.devices_info_dict[device_id]
-
         # 对指令进行处理
         if device_info is not None:
             # 根据设备指令组装消息

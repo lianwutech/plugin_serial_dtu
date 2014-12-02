@@ -19,8 +19,6 @@ class ApatcercdProtocol(BaseProtocol):
         # 修改协议名称
         self.protocol_type = "apatcercd"
         self.device_type = "apatcercd"
-        # 缓存命令来方便解析数据
-        self.device_cmd_msg = None
 
     def process_data(self, network_name, data):
         """
@@ -59,5 +57,5 @@ class ApatcercdProtocol(BaseProtocol):
         :return:
         """
         self.device_cmd_msg = device_cmd_msg
-        return device_cmd_msg.get("resource_route", "")
+        return device_cmd_msg["command"].get("resource_route", "")
 

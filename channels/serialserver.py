@@ -15,7 +15,7 @@ from libs.base_channel import BaseChannel
 logger = logging.getLogger('plugin')
 
 
-class SerialChannel(BaseChannel):
+class SerialServerChannel(BaseChannel):
     def __init__(self, channel_params, devices_file_name, protocol, mqtt_client, network_name):
         BaseChannel.__init__(self, channel_params, devices_file_name, protocol, mqtt_client, network_name)
 

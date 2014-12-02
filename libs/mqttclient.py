@@ -40,10 +40,15 @@ class MQTTClient(object):
                 logger.error("消息内容错误，%r" % msg.payload)
                 return
 
-            cmd_msg["device_id"] = msg.topic
+            if cmd_msg["device_id"] != msg.topic:
+                logger.error("device_id（%s）和topic(%s)不一致." % (cmd_msg["device_id"], msg.topic))
+                return
+
             # 调用channel处理指令
             if self.channel is not None:
                 self.channel.process_cmd(cmd_msg)
+            else:
+                logger.info("channel为空，不处理.")
 
             return
 

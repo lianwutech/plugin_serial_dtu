@@ -85,8 +85,8 @@ class YykjifProtocol(BaseProtocol):
             device_cmd = device_cmd_msg["command"]
             device_cmd = device_cmd.strip()
             if len(device_cmd) != 6 or ('S' not in device_cmd and 'F' not in device_cmd):
-                device_cmd = None
+                device_cmd = ""
         else:
-            device_cmd = None
+            device_cmd = ""
         return device_cmd
 
